@@ -1,0 +1,27 @@
+# System & OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDES
+.vscode/
+
+# AI & Temporary
+.antigravity/tmp/
+*.log
+status*.json
+auth_output*.txt
+
+# Output files (generated artifacts)
+output/
+*.pdf
+*.docx
+*.pptx
+*.mp4
+*.m4a
+
+# Python/Venv (if used later)
+__pycache__/
+*.pyc
+venv/
+.env
