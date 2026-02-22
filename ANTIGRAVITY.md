@@ -19,16 +19,24 @@
 - `design/`: Requirements (`01_requirements.md`) and Plans (`02_plan.md`).
 - `sections/`: Drafts for each paper section (Intro, Methods, etc.).
 - `refs/`: Reference materials and `.bib` files.
-- `.antigravity/`: System prompts and rules.
+- `skills/`: [NEW] Action-specific instructions and rules for the AI.
+- `scripts/`: [NEW] Python validation scripts and Git utilities.
 
 ## 4. AI & Tool Stack
 - **NotebookLM**: For literature review and synthesis (`nlm` CLI).
-- **Pandoc**: For final output generation (configured in `.antigravity`).
+- **Pandoc**: For final output generation.
 - **Git**: For version control of drafts.
+- **Python Setup**: Used for running Phase Gates (Gatekeeper Scripts).
 
-## 5. Trigger Phrases (Prompt Shortcuts)
-- "要件定義して" → `requirements_prompt.md`
-- "プラン作って" → `plan_prompt.md`
-- "イントロ作成して" → `introduction_prompt.md`
-- "メソッド作成して" → `methods_prompt.md`
+## 5. Phase Gates & Skills (Automated Workflow)
+This project uses a **Skill-Based Architecture**. AI actions are governed by `AGENTS.md` and specific `skills/`.
+- **Requirements Gate**: Writing cannot start until `design/01_requirements.md` passes validation (`python scripts/design_gatekeeper.py --stage requirements`).
+- **Plan Gate**: Writing cannot start until `design/02_plan.md` passes validation.
+
+### Key Skills (Trigger Phrases)
+Instead of asking "write an introduction", trigger the specific skill:
+- "要件定義スキルを実行して" → Runs `$paper-requirements`
+- "プラン作成スキルを実行して" → Runs `$paper-plan`
+- "イントロ執筆スキルを実行して" → Runs `$paper-write-introduction` (Will be blocked if gates fail)
+- "メソッド執筆スキルを実行して" → Runs `$paper-write-methods`
 
